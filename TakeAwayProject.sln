@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirements", "{50783442-E15C-4628-8AF6-1CD8AA6DEE9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3DA76164-E060-48F2-A288-C93FFF501E6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityServer", "{877A1E4E-EEA0-4757-AA85-7AB03D4672BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontends", "Frontends", "{C8D5DE3E-C947-4D7D-857B-12F60FEA5450}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{A6879226-04E7-4EA9-8428-0058FB4F14A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeAway.Catalog", "Services\Catalog\TakeAway.Catalog\TakeAway.Catalog.csproj", "{74E04A68-84DD-4DF9-8FC9-8BDDB28347BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74E04A68-84DD-4DF9-8FC9-8BDDB28347BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74E04A68-84DD-4DF9-8FC9-8BDDB28347BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74E04A68-84DD-4DF9-8FC9-8BDDB28347BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74E04A68-84DD-4DF9-8FC9-8BDDB28347BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A6879226-04E7-4EA9-8428-0058FB4F14A9} = {3DA76164-E060-48F2-A288-C93FFF501E6E}
+		{74E04A68-84DD-4DF9-8FC9-8BDDB28347BC} = {A6879226-04E7-4EA9-8428-0058FB4F14A9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DA72C06A-DB40-4455-B1BC-AA93B0E7738F}
+	EndGlobalSection
+EndGlobal
