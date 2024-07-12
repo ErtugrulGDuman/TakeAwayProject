@@ -4,7 +4,7 @@ namespace TakeAway.Catalog.Services.SliderServices
 {
     public interface ISliderService
     {
-        Task<List<ResultSliderDto>> GetAllCategories();
+        Task<List<ResultSliderDto>> GetAllSliderAsync();
         Task CreateSliderAsync(CreateSliderDto createSliderDto);
         Task UpdateSliderAsync(UpdateSliderDto updateSliderDto);
         Task DeleteSliderAsync(string id);

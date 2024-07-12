@@ -37,6 +37,11 @@ namespace TakeAway.Catalog.Services.FeatureServices
             return _mapper.Map<List<ResultFeatureDto>>(values);
         }
 
+        public Task<List<ResultFeatureDto>> GetAllFeatureAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<GetByIdFeatureDto> GetByIdFeatureAsync(string id)
         {
             var values = await _featureCollection.Find(x => x.FeatueId == id).FirstOrDefaultAsync();
