@@ -8,15 +8,10 @@ namespace TakeAwayProject.Discount.Context
     public class DapperContext : DbContext
     {
         private readonly IConfiguration _configuration;
-
         public DapperContext(IConfiguration configuration)
         {
             _configuration = configuration;
-            _connectionString = _configuration.GetConnectionString("Key");
-        }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=EGD\\SQLEXPRESS;initial catalog=TakeAwayProjectDiscountDb;integrated security=true");
+            _connectionString = _configuration.GetConnectionString("DefaultConnection");
         }
         public DbSet<DiscountCoupon> DiscountCoupons { get; set; }
         private readonly string _connectionString;

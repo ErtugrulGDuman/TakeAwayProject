@@ -1,32 +1,66 @@
-﻿using TakeAwayProject.Discount.Dtod;
+﻿using Dapper;
+using TakeAwayProject.Discount.Context;
+using TakeAwayProject.Discount.Dtod;
 
 namespace TakeAwayProject.Discount.Services
 {
     public class DiscountCouponService : IDiscountCouponService
     {
-        public Task CreateDiscountCouponAsync(CreateDiscountCouponDto createDiscountCouponDto)
+        private readonly DapperContext _context;
+
+        public DiscountCouponService(DapperContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task DeleteDiscountCouponAsync(int id)
+        public async Task CreateDiscountCouponAsync(CreateDiscountCouponDto createDiscountCouponDto)
         {
-            throw new NotImplementedException();
+            string query = "insert into DiscountCoupons (Rate,Code,IsActive) values (@rate,@code,@isActive)";
+            var parameters = new DynamicParameters();
+            parameters.Add("@rate", createDiscountCouponDto.Rate);
+            parameters.Add("@code", createDiscountCouponDto.Code);
+            parameters.Add("@isActive", createDiscountCouponDto.IsActive);
+            var connection = _context.CreateConnection();
+            await connection.ExecuteAsync(query, parameters);
         }
 
-        public Task<GetByIdDiscountCouponDto> GetByIdDiscountCouponAsync(int id)
+        public async Task DeleteDiscountCouponAsync(int id)
         {
-            throw new NotImplementedException();
+            string query = "Delete From DiscountCoupons Where DiscountCouponId=@discountCouponId";
+            var parameters = new DynamicParameters();
+            parameters.Add("@discountCouponId", id);
+            var connection = _context.CreateConnection();
+            await connection.ExecuteAsync(query, parameters);
         }
 
-        public Task<List<ResultDiscountCouponDto>> GetResultDiscountCouponAsync()
+        public async Task<GetByIdDiscountCouponDto> GetByIdDiscountCouponAsync(int id)
         {
-            throw new NotImplementedException();
+            string query = "Select * From DiscountCoupons Where DiscountCouponId=@discountCouponId";
+            var parameters = new DynamicParameters();
+            parameters.Add("@discountCouponId", id);
+            var connection = _context.CreateConnection();
+            var values = await connection.QueryFirstOrDefaultAsync<GetByIdDiscountCouponDto>(query);
+            return values;
         }
 
-        public Task UpdateDiscountCouponAsync(UpdateDiscountCouponDto updateDiscountCouponDto)
+        public async Task<List<ResultDiscountCouponDto>> GetResultDiscountCouponAsync()
         {
-            throw new NotImplementedException();
+            string query = "Select * From DiscountCoupons";
+            var connection = _context.CreateConnection();
+            var values = await connection.QueryAsync<ResultDiscountCouponDto>(query);
+            return values.ToList();
+        }
+
+        public async Task UpdateDiscountCouponAsync(UpdateDiscountCouponDto updateDiscountCouponDto)
+        {
+            string query = "Update DiscountCoupons set Code=@code, Rate=@rate, IsActive=@isActive Where DiscountCouponId=@discountCouponId";
+            var parameters = new DynamicParameters();
+            parameters.Add("@code", updateDiscountCouponDto.Code);
+            parameters.Add("@rate", updateDiscountCouponDto.Rate);
+            parameters.Add("@isActive", updateDiscountCouponDto.IsActive);
+            parameters.Add("@discountCouponId", updateDiscountCouponDto.DiscountCouponId);
+            var connection = _context.CreateConnection();
+            await connection.ExecuteAsync(query, parameters);
         }
     }
 }
