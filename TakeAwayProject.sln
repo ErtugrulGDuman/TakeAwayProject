@@ -27,13 +27,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{D3FBD543-C65A-4F6A-BEEC-9EF0AE20EEE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeAwayProject.Application", "Services\Order\Core\TakeAwayProject.Application\TakeAwayProject.Application.csproj", "{549583B0-248E-428D-A2A0-9D02802FBAF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TakeAwayProject.Application", "Services\Order\Core\TakeAwayProject.Application\TakeAwayProject.Application.csproj", "{549583B0-248E-428D-A2A0-9D02802FBAF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeAwayProject.Domain", "Services\Order\Core\TakeAwayProject.Domain\TakeAwayProject.Domain.csproj", "{6ECAC49A-32CF-4AB5-AD17-B6091D876C2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TakeAwayProject.Domain", "Services\Order\Core\TakeAwayProject.Domain\TakeAwayProject.Domain.csproj", "{6ECAC49A-32CF-4AB5-AD17-B6091D876C2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeAwayProject.Persistence", "Services\Order\Infrastructure\TakeAwayProject.Persistence\TakeAwayProject.Persistence.csproj", "{87DBBBD2-9C35-454C-B5BC-FE68F6D0C8BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TakeAwayProject.Persistence", "Services\Order\Infrastructure\TakeAwayProject.Persistence\TakeAwayProject.Persistence.csproj", "{87DBBBD2-9C35-454C-B5BC-FE68F6D0C8BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeAwayProject.OrderApi", "Services\Order\Presentation\TakeAwayProject.OrderApi\TakeAwayProject.OrderApi.csproj", "{B437C4D0-AE4A-4E63-838E-2EECB12EECFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TakeAwayProject.OrderApi", "Services\Order\Presentation\TakeAwayProject.OrderApi\TakeAwayProject.OrderApi.csproj", "{B437C4D0-AE4A-4E63-838E-2EECB12EECFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TakeAwayProject.IdentityServer", "IdentityServer\TakeAwayProject.IdentityServer\TakeAwayProject.IdentityServer.csproj", "{45BB4A41-D9DC-4288-BBF7-D892F07D7D85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{B437C4D0-AE4A-4E63-838E-2EECB12EECFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B437C4D0-AE4A-4E63-838E-2EECB12EECFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B437C4D0-AE4A-4E63-838E-2EECB12EECFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45BB4A41-D9DC-4288-BBF7-D892F07D7D85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45BB4A41-D9DC-4288-BBF7-D892F07D7D85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45BB4A41-D9DC-4288-BBF7-D892F07D7D85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45BB4A41-D9DC-4288-BBF7-D892F07D7D85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +88,7 @@ Global
 		{6ECAC49A-32CF-4AB5-AD17-B6091D876C2C} = {D0EEBF0B-C940-474E-9CB0-D7DCE720C9CE}
 		{87DBBBD2-9C35-454C-B5BC-FE68F6D0C8BA} = {80A9CC03-1392-4A88-9D85-8E4EFBCBE631}
 		{B437C4D0-AE4A-4E63-838E-2EECB12EECFA} = {D3FBD543-C65A-4F6A-BEEC-9EF0AE20EEE9}
+		{45BB4A41-D9DC-4288-BBF7-D892F07D7D85} = {877A1E4E-EEA0-4757-AA85-7AB03D4672BA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA72C06A-DB40-4455-B1BC-AA93B0E7738F}
