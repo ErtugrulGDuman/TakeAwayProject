@@ -16,7 +16,7 @@ namespace TakeAway.Catalog.Services.ProductServices
         {
             var client = new MongoClient(_databaseSettings.ConnectionString);
             var database = client.GetDatabase(_databaseSettings.DatabaseName);
-            _productCollection = database.GetCollection<Product>(_databaseSettings.CategoryCollectionName);
+            _productCollection = database.GetCollection<Product>(_databaseSettings.ProductCollectionNeme);
             _mapper = mapper;
         }
 
@@ -37,9 +37,10 @@ namespace TakeAway.Catalog.Services.ProductServices
             return _mapper.Map<List<ResultProductDto>>(values);
         }
 
-        public Task<List<ResultProductDto>> GetAllProductAsync()
+        public async Task<List<ResultProductDto>> GetAllProductAsync()
         {
-            throw new NotImplementedException();
+            var values = await _productCollection.Find(x => true).ToListAsync();
+            return _mapper.Map<List<ResultProductDto>>(values);
         }
 
         public async Task<GetByIdProductDto> GetByIdProductAsync(string id)
