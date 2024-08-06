@@ -1,5 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using TakeAwayProject.Comment.DAL.Context;
+using TakeAwayProject.Comment.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<CommentContext>(x =>
+{
+    x.UseNpgsql(connectionString);
+});
+
+builder.Services.AddScoped<ICommentService, CommentService>();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 // Add services to the container.
 
 builder.Services.AddControllers();
