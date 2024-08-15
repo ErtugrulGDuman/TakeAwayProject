@@ -15,7 +15,24 @@
                         $("#constatus").text(connection.state);
                         connection.start().then(() => {
                             $("#constatus").text(connection.state);
+                            setInterval(() => {
+                            connection.invoke("TotalDeliveryCount");
+                            connection.invoke("TotalDeliveryCountStatusByOnWay");
+                            connection.invoke("TotalDeliveryCountStatusByGettingReady");
+                            }, 1000);
                         }).catch((err) => { console.log(err) });
+                        connection.on("ReciveTotalDeliveryCount", (value) => {
+                            $("#txttotaldeliverycount").text(value);
+                        });
+                        connection.on("ReciveTotalDeliveryCountStatusByOnWay", (value) => {
+                            $("#txtrecivetotaldeliverycountstatusbyonway").text(value);
+                        });
+                        connection.on("ReciveTotalDeliveryCountStatusByGettingReady", (value) => {
+                            $("#txtrecivetotaldeliverycountstatusbygettingready").text(value);
+                        });
+                        connection.on("ReciveTotalDeliveryCountStatusByDelivered", (value) => {
+                            $("#txtrecivetotaldeliverycountstatusbydelivered").text(value);
+                        });
                     });
                 </script>
             </div>
@@ -23,3 +40,7 @@
     </div>
 }
 <div class="alert alert-primary">Bağlantının Durumu: <strong id="constatus"></strong></div>
+<div class="alert alert-warning">Toplam Sipariş Sayısı: <strong id="txttotaldeliverycount"></strong></div>
+<div class="alert alert-info">Yoldaki Sipariş Sayısı: <strong id="txtrecivetotaldeliverycountstatusbyonway"></strong></div>
+<div class="alert alert-danger">Hazırlanan Sipariş: <strong id="txtrecivetotaldeliverycountstatusbygettingready"></strong></div>
+<div class="alert alert-dark">Teslim Edilen Sipariş: <strong id="txtrecivetotaldeliverycountstatusbydelivered"></strong></div>
